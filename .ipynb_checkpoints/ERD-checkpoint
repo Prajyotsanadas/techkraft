@@ -1,0 +1,25 @@
+digraph {
+	Customer [label="Customer_ID (PK)
+Customer_Name
+Segment"]
+	Product [label="Product_ID (PK)
+Category
+Sub_Category
+Product_Name"]
+	Order [label="Order_ID (PK)
+Order_Date
+Ship_Date
+Customer_ID (FK)"]
+	ShipMode [label="Ship_Mode (PK)"]
+	FactSales [label="Order_ID (FK)
+Product_ID (FK)
+Ship_Mode (FK)
+Sales
+Quantity
+Discount
+Profit"]
+	Customer -> Order [label=has]
+	Order -> FactSales [label=contains]
+	Product -> FactSales [label="sold in"]
+	ShipMode -> FactSales [label="used in"]
+}
